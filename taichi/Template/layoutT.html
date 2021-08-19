@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load fontawesome_5 %}
+  <title>หน้าหลัก</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% fontawesome_5_static %}
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/blog-post.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+   body{
+      margin:0;
+      padding:70px;
+      background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+      -webkit-animation: 10s linear 0s normal none infinite animate;
+      -moz-animation: 10s linear 0s normal none infinite animate;
+      -ms-animation: 10s linear 0s normal none infinite animate;
+      -o-animation: 10s linear 0s normal none infinite animate;
+      animation: 10s linear 0s normal none infinite animate;
+    
+    }
+    
+    @-webkit-keyframes animate {
+      from {background-position:0 0;}
+      to {background-position: 500px 0;}
+    }
+    
+    @-moz-keyframes animate {
+      from {background-position:0 0;}
+      to {background-position: 500px 0;}
+    }
+    
+    @-ms-keyframes animate {
+      from {background-position:0 0;}
+      to {background-position: 500px 0;}
+    }
+    
+    @-o-keyframes animate {
+      from {background-position:0 0;}
+      to {background-position: 500px 0;}
+    }
+    
+    @keyframes animate {
+      from {background-position:0 0;}
+      to {background-position: 500px 0;}
+    }
+</style>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
+      <a class="navbar-brand"><img src="https://upload.wikimedia.org/wikipedia/th/f/f8/Hcu_logo.png" width="40" height="50" alt="">
+          <b>TaichiHCU</b></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="btn btn-warning" aria-current="page" href="/managestudent"><b><i class="fas fa-user-graduate">&nbspจัดการข้อมูลนักศึกษา</i></b></a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-warning" aria-current="page" href="/managelesson"><b><i class="fas fa-book-reader">&nbspจัดการเนื้อหาบทเรียน</i></b></a>
+              </li>
+            </ul>
+            </div>
+              <a class="btn btn-warning" aria-current="page" href="/learntaichi"><b><i class="fas fa-home"></i>&nbspView Site</b></a>
+              {% if user.is_authenticated %}
+              <div class="dropdown">
+              <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <b><i class="fas fa-user"></i>&nbsp{{user.first_name}}&nbsp{{user.last_name}}</b>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/addteacher"><b><i class="fas fa-plus"></i>&nbspเพิ่มอาจารย์ผู้สอน</b></a>
+                  <a class="dropdown-item" href="/logout"><b><i class="fas fa-sign-out-alt">&nbspออกจากระบบ</i></b></a>
+              </div>
+            </div>
+          {% endif %}
+      </nav>
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </body>
+    </html>

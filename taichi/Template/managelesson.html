@@ -1,0 +1,65 @@
+{% extends 'layoutT.html' %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="center">
+    <div class="card shadow-lg">
+    <div class="card-body">
+    <table class="table table-bordered">
+        <tr class="bg-warning">
+        <th scope="col">เพิ่มเนื้อหาบทเรียน</th>
+        </tr>
+        <tbody>
+        <tr>
+        <th scope="row"><a class="btn btn-info btn-lg btn-block" aria-current="page" href="/addlesson"><i class="fas fa-plus-square"></i>&nbspเพิ่ม</a></th>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="center">
+    <div class="card shadow-lg">
+    <div class="card-body">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="searchlesson">
+            {% csrf_token %}
+            <label><b>ค้นหาบทเรียน :</b></label>&nbsp
+            <input class="form-control mr-sm-2" name="searched" type="search" placeholder="กรุณากรอกลำดับท่า" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            {% for message in messages %}
+            <br>
+                <div class="alert alert-danger" role="alert">
+                    <div class="a">{{message}}</div>
+                </div>
+                {% endfor %}
+            <br>
+              <table class="table table-bordered">
+                    <tr class="bg-warning">
+                    <th scope="col">ลำดับท่า</th>
+                    <th scope="col">ชื่อบทเรียน</th>
+                    <th scope="col">จัดการ</th>
+                    </tr>
+                {% for learn in learnt %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{learn.pose_id}}</th>
+                    <th scope="row">{{learn.lesson_name}}</th>
+                    <td>
+                    <a class="btn btn-info" aria-current="page" href="editlesson/{{ learn.pose_id }}"><i class="fas fa-edit"></i>&nbspแก้ไข</a>
+                    <a class="btn btn-danger" aria-current="page" href="deletelesson/{{ learn.pose_id }}"><i class="far fa-trash-alt"></i>&nbspลบ</a>
+                    </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+          <br>
+    </div>
+  </div>
+    </div>
+</div>
+<br>
+{% endblock %}

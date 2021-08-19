@@ -1,0 +1,82 @@
+{% extends 'layoutT.html' %}
+{% block content %}
+<br>
+<div class="container">
+
+  <div class="row">
+
+      <!-- sidebar left -->
+      <div class="col-lg-8">
+          <div class="card">
+          <div class="card-header">
+          ข้อมูลนักศึกษา
+          </div>
+              <div class="container"><br>
+              <label for="idstudent">รหัสนักศึกษา :</label>&nbsp{{st.id_sd}}<br>
+              <label for="idstudent">ชื่อ-นามสกุล :</label>&nbsp{{st.student_name}}&nbsp{{st.student_lastname}}<br>
+              <label for="idstudent">สาขา :</label>&nbsp{{st.branch_student}}<br>
+              <label for="idstudent">คณะ :</label>&nbsp{{st.faculty_student}}<br>
+              <label for="idstudent">ปีการศึกษาที่เรียนวิชา :</label>&nbsp{{st.year_student}}<br>
+              <label for="idstudent">กลุ่มวิชา :</label>&nbsp{{st.group_student}}<br>
+              <label for="idstudent">อีเมล :</label>&nbsp{{st.email_student}}<br>
+              <br>
+              <div class="card-body">
+              </div>
+              </div>
+          </div>
+          <br>
+      </div>
+
+      <!-- sidebar right -->
+      <div class="col-md-4">
+
+    
+          <div class="well">
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">คะแนนฝึกรำไทเก๊ก</h5><br>
+                <table class="table table-bordered">
+                    <tr class="bg-warning">
+                    <th scope="col">ลำดับท่า</th>
+                    <th scope="col">สถานะ</th>
+                    <th scope="col">คะแนน</th>
+                    <th scope="col">เวลา</th>
+                    </tr>
+                <tbody>
+                {%for p in sc%}
+                {%if p%}
+                    <tr>
+                    <th scope="row">{{p.pose_id}}</th>
+                    <th scope="row">{{p.status_pose}}</th>
+                    <th scope="row">{{p.score_taichi}}</th>
+                    <th scope="row">{{p.score_date}}</th>
+                    </tr>
+                {% else %}
+                    <tr>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                    </tr>
+                {% endif %}
+                {% endfor %}
+                </tbody>
+                </table>
+                </div>
+              <br>
+            </div>
+          </div>
+
+         
+      </div>
+
+  </div>
+  
+
+</div>
+<!--/container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+{% endblock %}

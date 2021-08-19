@@ -1,0 +1,45 @@
+{% extends 'layoutT.html' %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="center">
+    <div class="card shadow-lg">
+    <div class="card-body">
+        <form action="lesson" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="a"><h3>เนื้อหาบทเรียนไทเก๊ก</h3></div>
+            {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    <div class="a">{{message}}</div>
+                </div>
+            {% endfor %}
+            <br>
+            <div class="form-group">
+              <label>ลำดับท่าที่ :</label>
+              <input type="number" class="form-control" placeholder="กรอกลำดับท่า" name="pose">
+            </div>
+            <div class="form-group">
+              <label>ชื่อเนื้อหา :</label>
+              <input type="text" class="form-control" placeholder="กรอกชื่อเนื้อหา" name="named">
+            </div>
+            <div class="form-group">
+              <label>รายละเอียดเนื้อหา :</label>
+              <textarea class="form-control" placeholder="กรอกรายละเอียดเนื้อหา" name="detail" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label>อัพโหลดรูปภาพประกอบ :</label>
+                <input type="file" class="form-control-file border" name="image_upload">            
+            </div>
+            <div class="form-group">
+                <label>วิดีโอประกอบการสอน :</label>
+                <input type="file" class="form-control-file border" name="video_upload">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-warning btn-lg btn-block">เพิ่มเนื้อหา</button>
+          </form>
+    </div>
+  </div>
+    </div>
+</div>
+<br>
+{% endblock %}

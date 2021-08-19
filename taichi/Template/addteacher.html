@@ -1,0 +1,48 @@
+{% extends 'layoutT.html' %}
+{% block content %}
+<br>
+<div class="container">
+        <div class="center">
+        <div class="card shadow-lg">
+        <div class="card-body">
+            <form action="registerteacher" method="POST">
+              {% csrf_token %}
+                <div class="a"><h3>เพิ่มอาจารย์ผู้สอน</h3></div>
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    <div class="a">{{message}}</div>
+                </div>
+                {% endfor %}
+                <br>
+                <div class="row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="ชื่อ" name="fname">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="นามสกุล" name="lname">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" name="uname">
+                    </div>
+                    <div class="col">
+                        <input type="email" class="form-control" placeholder="อีเมล" name="email">
+                    </div>
+                </div>
+                <br>
+                <input type="password" class="form-control" placeholder="กรอกรหัสผ่าน" name="pwd">
+                <br>
+                <!--<input type="password" class="form-control" placeholder="กรอกรหัสผ่านครั้งที่สอง" name="pwd2">
+                <br>-->
+                <input type="submit" class="btn btn-warning btn-lg btn-block" value="ลงทะเบียน">
+                <div class="a">
+                </div>
+                <br>
+              </form>
+        </div>
+      </div>
+        </div>
+    </div>
+    {% endblock %}

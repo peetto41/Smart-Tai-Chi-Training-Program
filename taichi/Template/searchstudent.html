@@ -1,0 +1,40 @@
+{% extends 'layoutT.html' %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="center">
+    <div class="card shadow-lg">
+    <div class="card-body">
+            <br>
+                {% if student %}
+              <center><h3>ค้นหาข้อมูลนักศึกษา :&nbsp{{student}}</h3></center><br>
+              <table class="table table-bordered">
+                    <tr class="bg-warning">
+                    <th scope="col">ชื่อนักศึกษา</th>
+                    <th scope="col">รหัสนักศึกษา</th>
+                    <th scope="col">กลุ่มวิชา</th>
+                    <th scope="col">ปีการศึกษาที่เรียนวิชา</th>
+                    <th scope="col">รายละเอียด</th>
+                    </tr>
+                {% for st in sr %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{st.student_name}}&nbsp{{st.student_lastname}}</th>
+                    <th scope="row">{{st.id_sd}}</th>
+                    <th scope="row">{{st.group_student}}</th>
+                    <th scope="row">{{st.year_student}}</th>
+                    <td>
+                    <a class="btn btn-info" aria-current="page" href="detailstudent/{{st.id_sd}}">ตรวจสอบ</a>
+                    </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                {% endif %}
+                </table>
+          <br>
+    </div>
+  </div>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'layoutT.html' %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="center">
+    <div class="card shadow-lg">
+    <div class="card-body">
+            <form method="POST" action="searchstudent">
+            {% csrf_token %}
+            <label><b>ค้นหารหัสนักศึกษา :</b></label>&nbsp
+            <input class="form-control mr-sm-2" name="searched" type="search" placeholder="กรุณากรอกรหัสนักศึกษา" aria-label="Search"><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <br><br>
+            <label><b>ค้นหาปีการศึกษาที่เรียนวิชา :</b></label>&nbsp
+            <input class="form-control mr-sm-2" name="yy" type="search" placeholder="กรุณากรอกปีการศึกษาที่เรียนวิชา" aria-label="Search"><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <br><br>
+            <label><b>ค้นหาชื่อนักศึกษา :</b></label>&nbsp
+            <input class="form-control mr-sm-2" name="nn" type="search" placeholder="กรุณากรอกชื่อนักศึกษา" aria-label="Search"><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <br><br>
+            <label><b>ค้นหากลุ่มวิชา :</b></label>&nbsp
+            <input class="form-control mr-sm-2" name="gg" type="search" placeholder="กรุณากรอกกลุ่มวิชา" aria-label="Search"><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+            </form><br>
+            
+            {% for message in messages %}
+            <br>
+                <div class="alert alert-danger" role="alert">
+                    <div class="a">{{message}}</div>
+                </div>
+            {% endfor %}
+            <br>
+              <table class="table table-bordered">
+                    <tr class="bg-warning">
+                    <th scope="col">รหัสนักศึกษา</th>
+                    <th scope="col">ชื่อนักศึกษา</th>
+                    <th scope="col">กลุ่มวิชา</th>
+                    <th scope="col">ปีการศึกษาที่เรียนวิชา</th>
+                    <th scope="col">รายละเอียด</th>
+                    </tr>
+                {% for st in student %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{st.id_sd}}</th>
+                    <th scope="row">{{st.student_name}}&nbsp{{st.student_lastname}}</th>
+                    <th scope="row">{{st.group_student}}</th>
+                    <th scope="row">{{st.year_student}}</th>
+                    <td>
+                    <a class="btn btn-info" aria-current="page" href="detailstudent/{{st.id_sd}}">ตรวจสอบ</a>
+                    </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+          <br>
+    </div>
+  </div>
+    </div>
+</div>
+<br>
+{% endblock %}

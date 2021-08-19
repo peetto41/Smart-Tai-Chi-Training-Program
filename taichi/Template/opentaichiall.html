@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="trainai" method="post">
+    {% csrf_token %}
+</form>
+<br><br><br><br>
+    <div class="card text-center">
+    <div class="card-body">
+      <p class="card-text">
+      <div class="alert alert-warning" role="alert">
+            <center><h2>ออกจากโปรแกรมฝึกซ้อม</h2></center>
+            <a class="btn btn-danger btn-lg btn-block" aria-current="page" href="trainai">Try Agian</a>
+      </div></p>
+    </div>
+    </div>
+  </div>
+{% endblock %}

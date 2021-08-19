@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+<br>
+    <div class="container">
+        <div class="center">
+        <div class="card shadow-lg">
+        <div class="card-body">
+            <div class="container">
+            <form action="" method="POST">
+              {% csrf_token %}
+                <center><h3>แก้ไขข้อมูลนักศึกษา</h3></center>
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    <div class="a">{{message}}</div>
+                </div>
+                {% endfor %}
+                <br>
+                <div class="form-group">
+                <label>ชื่อ :</label>
+                <input type="hidden" class="form-control" placeholder="อีเมล" value="{{u.email_student}}" name="email">
+                <input type="hidden" class="form-control" placeholder="รหัสผ่าน" value="{{u.pass_student}}" name="pwd">
+                <input type="text" class="form-control" placeholder="ชื่อ" value="{{u.student_name}}" name="fname">
+                </div>
+                <div class="form-group">
+                <label>นามสกุล :</label>
+                <input type="text" class="form-control" placeholder="นามสกุล" value="{{u.student_lastname}}" name="lname">
+                </div>
+                <div class="form-group">
+                <label>ปีการศึกษาที่เรียนวิชา :</label>
+                <input type="text" class="form-control" placeholder="ปีการศึกษาที่เรียนวิชา" value="{{u.year_student}}" name="year">
+                </div>
+                <div class="form-group">
+                <label>กลุ่มวิชา :</label>
+                <input type="text" class="form-control" placeholder="กลุ่มวิชา" value="{{u.group_student}}" name="group">
+                </div>
+                <div class="form-group">
+                <label>สาขา :</label>
+                <input type="text" class="form-control" placeholder="สาขา" value="{{u.branch_student}}" name="b">
+                </div>
+                <div class="form-group">
+                <label>คณะ :</label>
+                <input type="text" class="form-control" placeholder="คณะ" value="{{u.faculty_student}}" name="f">
+                </div> 
+                <input type="submit" class="btn btn-warning btn-lg btn-block" value="อัพเดทโปรไฟล์">
+              </form>
+              </div>
+        </div>
+      </div>
+        </div>
+    </div>
+{% endblock %}

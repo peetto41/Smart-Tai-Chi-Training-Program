@@ -1,0 +1,38 @@
+{% extends 'layoutT.html' %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="center">
+    <div class="card shadow-lg">
+    <div class="card-body">
+            <br>
+                {% if lesson %}
+              <center><h3>ค้นหาบทเรียน :&nbsp{{lesson}}</h3></center><br>
+                <table class="table table-bordered">
+                    <tr class="bg-warning">
+                    <th scope="col">ลำดับท่า</th>
+                    <th scope="col">ชื่อบทเรียน</th>
+                    <th scope="col">จัดการ</th>
+                    </tr>
+                {% for learn in learnt %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{learn.pose_id}}</th>
+                    <th scope="row">{{learn.lesson_name}}</th>
+                    <td>
+                    <a class="btn btn-info" aria-current="page" href="editlesson/{{ learn.pose_id }}">แก้ไข</a>
+                    <a class="btn btn-danger" aria-current="page" href="deletelesson/{{ learn.pose_id }}">ลบ</a>
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+                {% endfor %}
+                </table>
+                {% endif %}
+          <br>
+    </div>
+  </div>
+    </div>
+</div>
+<br>
+{% endblock %}

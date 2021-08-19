@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+    div.a {
+        text-align: center;
+    }
+    .scroll {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+</style>
+<br>
+<div class="container">
+
+  <div class="row">
+
+      <!-- sidebar left -->
+      <div class="col-lg-8">
+          <div class="card">
+          <div class="card-header">
+          สถานะรำไทเก๊ก
+          </div>
+              <table class="table table-bordered">
+                    <tr class="bg-warning">
+                    <th scope="col">ลำดับท่า</th>
+                    <th scope="col">สถานะ</th>
+                    <th scope="col">คะแนน</th>
+                    </tr>
+                {% for us in u %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{us.pose_id}}</th>
+                    <th scope="row">{{us.status_pose}}</th>
+                    <th scope="row">{{us.score_taichi}}</th>
+                    </tr>
+                </tbody>
+                {% endfor%}
+                </table>
+              <div class="card-body">
+              </div>
+          </div>
+      </div>
+
+     <!-- sidebar right -->
+      <div class="col-md-4">
+
+    
+          <div class="well">
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">ฝึกฝนรำไทเก๊กด้วยปัญญาประดิษฐ์</h5><br>
+                <label for="posese">ท่ารำ :</label>
+                <select id="my_selection">
+                    <option value="0">เลือกกระบวนท่า</option>
+                    <option value="1" href="detecttaichi1">ท่าที่ 1</option>
+                    <option value="2" href="detecttaichi2">ท่าที่ 2</option>
+                    <option value="3" href="detecttaichi3">ท่าที่ 3</option>
+                    <option value="4" href="detecttaichi4">ท่าที่ 4</option>
+                    <option value="5" href="detecttaichi5">ท่าที่ 5</option>
+                    <option value="6" href="detecttaichi6">ท่าที่ 6</option>
+                    <option value="7" href="detecttaichi7">ท่าที่ 7</option>
+                    <option value="8" href="detecttaichi8">ท่าที่ 8</option>
+                    <option value="9" href="detecttaichi9">ท่าที่ 9</option>
+                    <option value="10" href="detecttaichi10">ท่าที่ 10</option>
+                </select>
+                <br>
+                </div>
+                <div class="container"
+              <p style="color:red">*เมื่อต้องการออกจากโปรแกรมให้กดปุ่ม Q บนคีย์บอดของท่าน</p>
+              </div>
+              <br>
+            </div>
+          </div>
+          <br>
+          <div class="card">
+          <div class="card-header">
+          ประวัติรำไทเก๊ก
+          </div>
+          <div class="scroll">
+              <table class="table table-bordered">
+                {% for gs in g %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{gs.pose_id}}</th>
+                    <th scope="row">{{gs.score_date}}</th>
+                    <td><a class="btn btn-danger" aria-current="page" href="deletescorest/{{ gs.score_id }}"><i class="far fa-trash-alt">&nbspลบ</i></a>
+                    </td>
+                    </tr>
+                </tbody>
+                {% endfor%}
+                </table>
+              </div>
+         
+      </div>
+
+  </div>
+</div>
+<!--/container -->
+
+<!-- jQuery -->
+<script>
+        document.getElementById('my_selection').onchange = function() {
+            window.location.href = this.children[this.selectedIndex].getAttribute('href');
+        }
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+{% endblock %}

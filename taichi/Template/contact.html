@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+<br>
+<div class="card text-center">
+    <div class="card-header">
+        <br>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">ติดต่อ</h5>
+      <div class="card-body">
+      {% if s %}
+      <p class="card-text">
+      <div class="container"><br>
+      <label for="idstudent">ชื่อ-นามสกุล :</label>&nbsp{{s.first_name}}&nbsp{{s.last_name}}<br>
+      <label for="idstudent">อีเมลติดต่อ :</label>&nbsp{{s.email}}<br>
+      </div>
+      </p>
+      {% endif %}
+    </div>
+    </div>
+    <div class="card-footer text-muted">
+        <br>
+    </div>
+  </div>
+{% endblock %}

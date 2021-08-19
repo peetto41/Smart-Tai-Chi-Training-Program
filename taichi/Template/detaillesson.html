@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<br>
+<div class="container">
+        <form method="POST" action="">
+        {% csrf_token %}
+          <div class="card shadow-lg">
+              <div class="container">
+              <br>
+              <div class="card-body">
+              <div class="a">
+              <h3>ท่าที่&nbsp{{learn.pose_id}}&nbsp{{learn.lesson_name}}</h3></div><br>
+              <p class="card-text">{{learn.lesson_detail}}</p>
+              <center>
+              <img class="card-img-top" src="{{ MEDIA_URL }}{{ learn.lesson_image}}" style="width: 40rem; margin: 10px" alt="Card image cap">
+              </center><br>
+              <center><p>วิดีโอประกอบ :</p>
+              <video width="600" controls>
+                   <source src='{{ MEDIA_URL }}{{learn.videofile}}' type='video/mp4'>
+              </video></center>
+              </div>
+              </div>
+              <br>
+          </div>
+          <br>
+        </form>
+</div>
+{% endblock %}
