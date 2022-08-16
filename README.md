@@ -1,13 +1,6 @@
 # Smart-Tai-Chi-Training-Program
-โปรแกรมฝึกซ้อมไทเก๊กอัจฉริยะจะเป็นระบบเว็บแอปพลิเคชั่นที่แสกนตรวจท่ารำผ่านกล้องเว็บแคมโดยใช้ปัญญาประดิษฐ์เข้ามาตรวจสอบท่ารำไทเก๊ก
-######
-จัดทำโดย นายนาวิน มั่นน้อย 
-######
-โครงงานนี้เป็นส่วนหนึ่งของการศึกษารายวิชา CS4903 โครงงานพิเศษ (Special Project)
-######
-หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการคอมพิวเตอร์
-######
-คณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยหัวเฉียวเฉลิมพระเกียรติ
-######
-โค้ดสำหรับการทำAIตรวจสอบท่ารำไทเก๊ก
+## Smart Tai Chi training program is a web application system that scans the dance through a webcam using artificial intelligence to check the Tai Chi dance moves.
+
+
+## Project for making AI check Tai Chi dance moves.
 https://github.com/peetto41/TrainDetectTaichi
