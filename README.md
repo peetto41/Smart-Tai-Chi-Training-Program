@@ -4,14 +4,24 @@ Smart Tai Chi training program is a web application system that scans the dance 
 ``` bash
 # install env
 pip install virtualenv
+```
+``` bash
 # create a python environment named env or whatever.
-venv env 
+venv env
+```
+``` bash
 # activate env for Linux and macOS
 source env/bin/activate 
+```
+``` bash
 # activate env for Windows
 .\env\Scripts\activate
+```
+``` bash
 # install package module python
 pip install requirements.txt
+```
+``` bash
 # run test local server
 python manage.py runserver -h 127.0.0.1 -p 8000
 ```
