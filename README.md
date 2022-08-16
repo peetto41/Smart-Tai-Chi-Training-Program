@@ -24,7 +24,7 @@ pip install requirements.txt
 ``` bash
 # update database in /taichi/models.py use migrations
 python manage.py makemigrations
-and
+# and
 python manage.py migrate 
 ```
 ``` bash
