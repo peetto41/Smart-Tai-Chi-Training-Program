@@ -22,6 +22,12 @@ source env/bin/activate
 pip install requirements.txt
 ```
 ``` bash
+# update database in /taichi/models.py use migrations
+python manage.py makemigrations
+and
+python manage.py migrate 
+```
+``` bash
 # run test local server
 python manage.py runserver -h 127.0.0.1 -p 8000
 ```
