@@ -7,5 +7,8 @@ pip install requirements.txt
 # run test local server
 python manage.py runserver -h 127.0.0.1 -p 8000
 ```
+## Video Demo
+https://drive.google.com/file/d/1b7Cmx9ae-a6JB3gm09x9kfnPnCeNFk45/view?usp=sharing
+
 ## Project for making AI check Tai Chi dance moves.
 https://github.com/peetto41/TrainDetectTaichi
